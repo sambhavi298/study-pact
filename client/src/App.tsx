@@ -6,6 +6,7 @@ import { HealthCheck } from "./pages/HealthCheck";
 import { Register } from "./pages/Register";
 import { Login } from "./pages/Login";
 import { Profile } from "./pages/Profile";
+import { DesignSystemPreview } from "./pages/DesignSystemPreview";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/health-check" element={<HealthCheck />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/design-system" element={<DesignSystemPreview />} />
 
         <Route element={<ProtectedRoute />}>
           <Route path="/profile" element={<Profile />} />
