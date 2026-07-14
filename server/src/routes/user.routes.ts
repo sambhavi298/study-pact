@@ -1,7 +1,10 @@
 import { Router } from "express";
-import { postUser, getUser } from "../controllers/user.controller";
+import { getUser, getMe } from "../controllers/user.controller";
+import { requireAuth } from "../middlewares/requireAuth";
 
 export const userRouter = Router();
 
-userRouter.post("/users", postUser);
+// IMPORTANT: /users/me must be registered before /users/:id, or Express
+// would match "me" as an :id value instead.
+userRouter.get("/users/me", requireAuth, getMe);
 userRouter.get("/users/:id", getUser);

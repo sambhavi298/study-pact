@@ -4,15 +4,24 @@ import {
   findUserById,
 } from "../repositories/user.repository";
 import { AppError } from "../errors/AppError";
-import { CreateUserInput } from "../validators/user.validator";
+import { RegisterInput } from "../validators/auth.validator";
+import { hashPassword } from "./auth.service";
 
-export async function registerUser(input: CreateUserInput) {
+// Prisma's generated User type includes `password` - we never return it as-is.
+function toSafeUser<T extends { password: string }>(user: T) {
+  const { password, ...safeUser } = user;
+  return safeUser;
+}
+
+export async function registerUser(input: RegisterInput) {
   const existing = await findUserByEmail(input.email);
   if (existing) {
     throw new AppError("Email already in use", 409);
   }
 
-  return createUser(input.email, input.name);
+  const hashed = await hashPassword(input.password);
+  const user = await createUser(input.email, input.name, hashed);
+  return toSafeUser(user);
 }
 
 export async function getUserById(id: string) {
@@ -20,5 +29,5 @@ export async function getUserById(id: string) {
   if (!user) {
     throw new AppError("User not found", 404);
   }
-  return user;
+  return toSafeUser(user);
 }
