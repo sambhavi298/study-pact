@@ -16,6 +16,9 @@ export function Layout() {
 
         {token ? (
           <>
+            <Link to="/checkins" className="text-gray-700 font-medium hover:text-blue-600">
+              Check-In
+            </Link>
             <Link to="/tasks" className="text-gray-700 font-medium hover:text-blue-600">
               Tasks
             </Link>
