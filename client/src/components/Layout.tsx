@@ -22,6 +22,9 @@ export function Layout() {
             <Link to="/tasks" className="text-gray-700 font-medium hover:text-blue-600">
               Tasks
             </Link>
+            <Link to="/friends" className="text-gray-700 font-medium hover:text-blue-600">
+              Friends
+            </Link>
             <Link to="/profile" className="text-gray-700 font-medium hover:text-blue-600">
               Profile
             </Link>

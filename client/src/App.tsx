@@ -9,6 +9,7 @@ import { Profile } from "./pages/Profile";
 import { DesignSystemPreview } from "./pages/DesignSystemPreview";
 import { Tasks } from "./pages/Tasks";
 import { CheckIns } from "./pages/CheckIns";
+import { Friends } from "./pages/Friends";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/tasks" element={<Tasks />} />
           <Route path="/checkins" element={<CheckIns />} />
+          <Route path="/friends" element={<Friends />} />
         </Route>
       </Route>
     </Routes>
