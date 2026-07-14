@@ -5,6 +5,7 @@ import { userRouter } from "./routes/user.routes";
 import { authRouter } from "./routes/auth.routes";
 import { taskRouter } from "./routes/task.routes";
 import { checkInRouter } from "./routes/checkin.routes";
+import { friendRouter } from "./routes/friend.routes";
 import { errorHandler } from "./middlewares/errorHandler";
 
 export const app = express();
@@ -16,6 +17,7 @@ app.use(authRouter);
 app.use(userRouter);
 app.use(taskRouter);
 app.use(checkInRouter);
+app.use(friendRouter);
 
 // Error handler must be mounted LAST, after all routes
 app.use(errorHandler);

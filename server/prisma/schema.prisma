@@ -13,14 +13,16 @@ datasource db {
 }
 
 model User {
-  id        String    @id @default(cuid())
-  email     String    @unique
-  name      String
-  password  String
-  tasks     Task[]
-  checkIns  CheckIn[]
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+  id            String          @id @default(cuid())
+  email         String          @unique
+  name          String
+  password      String
+  tasks         Task[]
+  checkIns      CheckIn[]
+  sentRequests     FriendRequest[] @relation("SentRequests")
+  receivedRequests FriendRequest[] @relation("ReceivedRequests")
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
 }
 
 enum Priority {
@@ -53,4 +55,23 @@ model CheckIn {
   updatedAt  DateTime @updatedAt
 
   @@unique([userId, date])
+}
+
+enum FriendRequestStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+}
+
+model FriendRequest {
+  id         String              @id @default(cuid())
+  senderId   String
+  sender     User                @relation("SentRequests", fields: [senderId], references: [id], onDelete: Cascade)
+  receiverId String
+  receiver   User                @relation("ReceivedRequests", fields: [receiverId], references: [id], onDelete: Cascade)
+  status     FriendRequestStatus @default(PENDING)
+  createdAt  DateTime            @default(now())
+  updatedAt  DateTime            @updatedAt
+
+  @@unique([senderId, receiverId])
 }
