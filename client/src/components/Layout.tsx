@@ -15,9 +15,14 @@ export function Layout() {
         </Link>
 
         {token ? (
-          <Link to="/profile" className="text-gray-700 font-medium hover:text-blue-600">
-            Profile
-          </Link>
+          <>
+            <Link to="/tasks" className="text-gray-700 font-medium hover:text-blue-600">
+              Tasks
+            </Link>
+            <Link to="/profile" className="text-gray-700 font-medium hover:text-blue-600">
+              Profile
+            </Link>
+          </>
         ) : (
           <>
             <Link to="/login" className="text-gray-700 font-medium hover:text-blue-600">

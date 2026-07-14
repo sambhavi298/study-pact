@@ -7,6 +7,7 @@ import { Register } from "./pages/Register";
 import { Login } from "./pages/Login";
 import { Profile } from "./pages/Profile";
 import { DesignSystemPreview } from "./pages/DesignSystemPreview";
+import { Tasks } from "./pages/Tasks";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
 
         <Route element={<ProtectedRoute />}>
           <Route path="/profile" element={<Profile />} />
+          <Route path="/tasks" element={<Tasks />} />
         </Route>
       </Route>
     </Routes>

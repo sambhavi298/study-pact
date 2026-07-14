@@ -25,6 +25,11 @@ export async function apiFetch<T>(path: string, options: ApiOptions = {}): Promi
     body: options.body ? JSON.stringify(options.body) : undefined,
   });
 
+  // 204 No Content (e.g. DELETE) has no body to parse.
+  if (res.status === 204) {
+    return undefined as T;
+  }
+
   const json = await res.json();
 
   if (!res.ok) {
