@@ -11,7 +11,7 @@ export function HealthCheck() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:4000/health")
+    fetch(`${import.meta.env.VITE_API_URL}/health`)
       .then((res) => res.json())
       .then((data) => setResult(data))
       .catch(() => setError("Could not reach the backend"))
