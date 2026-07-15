@@ -6,6 +6,7 @@ export const config = {
   jwtSecret: process.env.JWT_SECRET as string,
   jwtExpiresIn: process.env.JWT_EXPIRES_IN || "1h",
   redisUrl: process.env.REDIS_URL as string,
+  corsOrigins: (process.env.CORS_ORIGINS || "http://localhost:5173").split(","),
 };
 
 if (!config.jwtSecret) {

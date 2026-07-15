@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import { config } from "./config/env";
 import { healthRouter } from "./routes/health.routes";
 import { userRouter } from "./routes/user.routes";
 import { authRouter } from "./routes/auth.routes";
@@ -15,7 +16,7 @@ export const app = express();
 // not the proxy itself.
 app.set("trust proxy", 1);
 
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({ origin: config.corsOrigins }));
 app.use(express.json());
 app.use(healthRouter);
 app.use(authRouter);
