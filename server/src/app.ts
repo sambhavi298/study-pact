@@ -10,6 +10,11 @@ import { errorHandler } from "./middlewares/errorHandler";
 
 export const app = express();
 
+// Trust the first hop of proxying (Render's own reverse proxy) so
+// express-rate-limit and req.ip correctly identify the real client,
+// not the proxy itself.
+app.set("trust proxy", 1);
+
 app.use(cors({ origin: "http://localhost:5173" }));
 app.use(express.json());
 app.use(healthRouter);
