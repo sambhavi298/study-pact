@@ -8,6 +8,7 @@ A full-stack academic planning and accountability platform for managing study ta
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-4169E1?logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![Prisma](https://img.shields.io/badge/Prisma-7-2D3748?logo=prisma&logoColor=white)](https://www.prisma.io/)
 [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
 ## Live Application
 
@@ -460,4 +461,6 @@ Built by [sambhavi298](https://github.com/sambhavi298).
 
 ## License
 
-A root-level license file has not yet been added. Add a license before encouraging external reuse or contributions.
+This project is licensed under the [MIT License](./LICENSE).
+
+Copyright © 2026 Sambhavi Ranjan.
